@@ -25,12 +25,12 @@ export function FilterSidebar() {
           <div className="mt-3 grid grid-cols-2 gap-2">
             <input
               aria-label="Minimum price"
-              placeholder="৳0"
+              placeholder="Tk 30,000"
               className="focus-ring rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm"
             />
             <input
               aria-label="Maximum price"
-              placeholder="৳30,000"
+              placeholder="Tk 0"
               className="focus-ring rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm"
             />
           </div>

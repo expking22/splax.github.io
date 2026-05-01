@@ -183,7 +183,9 @@ export function getProduct(id: string) {
 }
 
 export function formatPrice(value: number) {
-  return `৳${new Intl.NumberFormat("en-BD", {
+  const formatted = new Intl.NumberFormat("en-BD", {
     maximumFractionDigits: 0
-  }).format(value)}`;
+  }).format(value);
+
+  return `Tk ${formatted}`;
 }

@@ -1,22 +1,36 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SlidersHorizontal, Star } from "lucide-react";
 import { ProductCard } from "@/components/products/product-card";
-import { categories, products } from "@/lib/products";
+import { categories, products, type Product } from "@/lib/products";
 
 export function ProductListingClient() {
+  const [adminProducts, setAdminProducts] = useState<Product[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [minRating, setMinRating] = useState(0);
   const [sort, setSort] = useState("popular");
 
+  useEffect(() => {
+    const stored = window.localStorage.getItem("splax-admin-products");
+    if (stored) {
+      setAdminProducts(JSON.parse(stored) as Product[]);
+    }
+  }, []);
+
+  const allProducts = useMemo(() => [...adminProducts, ...products], [adminProducts]);
+  const allCategories = useMemo(
+    () => Array.from(new Set([...categories, ...adminProducts.map((product) => product.category)])),
+    [adminProducts]
+  );
+
   const visibleProducts = useMemo(() => {
     const min = Number(minPrice) || 0;
     const max = Number(maxPrice) || Number.POSITIVE_INFINITY;
 
-    return [...products]
+    return [...allProducts]
       .filter((product) => {
         const categoryMatch =
           selectedCategories.length === 0 || selectedCategories.includes(product.category);
@@ -33,7 +47,7 @@ export function ProductListingClient() {
         if (sort === "rating") return b.rating - a.rating;
         return b.reviews - a.reviews;
       });
-  }, [maxPrice, minPrice, minRating, selectedCategories, sort]);
+  }, [allProducts, maxPrice, minPrice, minRating, selectedCategories, sort]);
 
   function toggleCategory(category: string) {
     setSelectedCategories((current) =>
@@ -79,7 +93,7 @@ export function ProductListingClient() {
             <section>
               <h3 className="font-black">Category</h3>
               <div className="mt-3 grid gap-2">
-                {categories.map((category) => (
+                {allCategories.map((category) => (
                   <label key={category} className="flex items-center gap-2 text-sm text-[var(--muted)]">
                     <input
                       type="checkbox"
@@ -97,7 +111,7 @@ export function ProductListingClient() {
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <input
                   aria-label="Minimum price"
-                  placeholder="৳0"
+                  placeholder="Tk 30,000"
                   inputMode="numeric"
                   value={minPrice}
                   onChange={(event) => setMinPrice(event.target.value)}
@@ -105,7 +119,7 @@ export function ProductListingClient() {
                 />
                 <input
                   aria-label="Maximum price"
-                  placeholder="৳30,000"
+                  placeholder="Tk 0"
                   inputMode="numeric"
                   value={maxPrice}
                   onChange={(event) => setMaxPrice(event.target.value)}

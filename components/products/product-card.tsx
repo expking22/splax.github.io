@@ -8,10 +8,11 @@ import { AddToCartButton } from "@/components/products/add-to-cart-button";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const discount = Math.round(((product.compareAt - product.price) / product.compareAt) * 100);
+  const productHref = product.id.startsWith("admin-") ? "/products" : `/product/${product.id}`;
 
   return (
     <article className="group overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] transition hover:-translate-y-1 hover:shadow-xl">
-      <Link href={`/product/${product.id}`} className="block">
+      <Link href={productHref} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-[var(--background)]">
           <Image
             src={product.image}
@@ -32,7 +33,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
       <div className="grid gap-3 p-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-wide text-[var(--muted)]">{product.category}</p>
-          <Link href={`/product/${product.id}`}>
+          <Link href={productHref}>
             <h2 className="mt-1 min-h-12 text-base font-black leading-6 transition hover:text-[#202940] dark:hover:text-[#BFC9D1]">
               {product.title}
             </h2>
