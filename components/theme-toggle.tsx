@@ -7,7 +7,7 @@ export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("marketpro-theme");
+    const stored = window.localStorage.getItem("splax-theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const enabled = stored ? stored === "dark" : prefersDark;
     setIsDark(enabled);
@@ -18,7 +18,7 @@ export function ThemeToggle() {
     const next = !isDark;
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
-    window.localStorage.setItem("marketpro-theme", next ? "dark" : "light");
+    window.localStorage.setItem("splax-theme", next ? "dark" : "light");
   }
 
   return (

@@ -19,6 +19,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# TypeScript
+*.tsbuildinfo
+
 # system files
 .DS_Store
 Thumbs.db

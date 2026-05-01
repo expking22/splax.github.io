@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LockKeyhole, Mail, UserPlus } from "lucide-react";
+import { UserPlus } from "lucide-react";
+import { AuthFormClient } from "@/components/auth/auth-form-client";
 
 export const metadata: Metadata = {
   title: "Sign In or Create Account",
@@ -27,35 +28,15 @@ export default function AuthPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm">
-        <h2 className="text-3xl font-black">Sign in / Create account</h2>
-        <p className="mt-2 text-[var(--muted)]">Use your email to continue securely.</p>
-        <form className="mt-6 grid gap-4">
-          <label>
-            <span className="text-sm font-bold">Email address</span>
-            <div className="mt-2 flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3">
-              <Mail size={18} className="text-[var(--muted)]" />
-              <input type="email" name="email" className="w-full bg-transparent outline-none" placeholder="you@example.com" />
-            </div>
-          </label>
-          <label>
-            <span className="text-sm font-bold">Password</span>
-            <div className="mt-2 flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3">
-              <LockKeyhole size={18} className="text-[var(--muted)]" />
-              <input type="password" name="password" className="w-full bg-transparent outline-none" placeholder="Enter password" />
-            </div>
-          </label>
-          <button type="button" className="mt-2 rounded-full bg-[#202940] px-6 py-3 font-black text-white transition hover:bg-[#12192b]">
-            Sign in securely
-          </button>
-        </form>
+      <div>
+        <AuthFormClient />
         <p className="mt-5 text-sm text-[var(--muted)]">
-          By continuing, you agree to protected marketplace terms and seller communication updates.
+          This front-end demo stores a local session in your browser. Connect a real auth provider before accepting production accounts.
         </p>
         <Link href="/products" className="mt-5 inline-flex font-black text-[#202940] dark:text-[#BFC9D1]">
           Continue as guest
         </Link>
-      </section>
+      </div>
     </div>
   );
 }

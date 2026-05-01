@@ -11,6 +11,14 @@ npm run dev
 
 Then open `http://localhost:3000`.
 
+## Professional URLs
+
+- Local website: `http://localhost:3000`
+- Customer dashboard: `http://localhost:3000/dashboard`
+- Sign in / create account: `http://localhost:3000/auth`
+- Order checkout: `http://localhost:3000/checkout`
+- Production domain configured in the app: `https://splax.github.io`
+
 ## Pages
 
 - `/` high-converting homepage

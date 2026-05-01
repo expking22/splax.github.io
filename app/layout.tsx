@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { CartProvider } from "@/lib/cart-context";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -12,7 +13,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://premium-marketplace.example"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "SPLAX | Premium Global Ecommerce Marketplace",
     template: "%s | SPLAX"
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "A modern ecommerce marketplace built for fast discovery, trusted sellers, and high-converting shopping experiences.",
     type: "website",
-    url: "https://premium-marketplace.example",
+    url: siteConfig.url,
     images: [
       {
         url: "/splax-logo.webp",
