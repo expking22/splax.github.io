@@ -1,0 +1,9 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MarketPro logo</title>
+  <desc id="desc">MarketPro ecommerce marketplace brand mark</desc>
+  <rect width="56" height="56" rx="14" fill="#202940"/>
+  <path d="M15 37.8V17.5H21.1L28 29.2L34.9 17.5H41V37.8H35.8V25.6L29.9 35.2H26.1L20.2 25.6V37.8H15Z" fill="white"/>
+  <path d="M43.5 19.2C43.5 17.5 44.9 16.1 46.6 16.1C48.3 16.1 49.7 17.5 49.7 19.2C49.7 20.9 48.3 22.3 46.6 22.3C44.9 22.3 43.5 20.9 43.5 19.2Z" fill="#BFC9D1"/>
+  <path d="M43.9 28.3H49.3V37.8H43.9V28.3Z" fill="#BFC9D1"/>
+  <text x="70" y="34" fill="#202940" font-family="Roboto, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="0">MarketPro</text>
+</svg>

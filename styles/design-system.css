@@ -1,0 +1,19 @@
+:root {
+  --background: #f7f9fc;
+  --foreground: #111827;
+  --primary: #202940;
+  --secondary: #bfc9d1;
+  --surface: #ffffff;
+  --muted: #5f6b7a;
+  --border: #e3e8ef;
+}
+
+.dark {
+  --background: #111827;
+  --foreground: #f8fafc;
+  --primary: #202940;
+  --secondary: #bfc9d1;
+  --surface: #182033;
+  --muted: #b7c0cc;
+  --border: #2d374d;
+}

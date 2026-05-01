@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "../styles/design-system.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: #202940;
+  color: white;
+}
+
+.container-page {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px rgba(32, 41, 64, 0.35);
+}
+
+.dark .focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px rgba(191, 201, 209, 0.45);
+}
